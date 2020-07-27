@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="FileTypeAnalyzerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-27T17:30:19" hostname="LAPTOP-T7A8H3CR" time="0.237">
+  <properties/>
+  <testcase name="start" classname="FileTypeAnalyzerTest" time="0.237"/>
+  <system-out><![CDATA[?[1;31m
+Start test 1?[0m
+PDF document
+?[1;31m
+Start test 2?[0m
+PDF document
+?[1;31m
+Start test 3?[0m
+Unknown file type
+?[1;31m
+Start test 4?[0m
+Unknown file type
+?[1;31m
+Start test 5?[0m
+DOC document
+?[1;31m
+Start test 6?[0m
+DOC document
+?[1;31m
+Start test 7?[0m
+Unknown file type
+?[1;31m
+Start test 8?[0m
+Unknown file type
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

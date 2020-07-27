@@ -1,0 +1,117 @@
+type: edu
+custom_name: Is this a PDF?
+files:
+- name: src/analyzer/Main.java
+  visible: true
+  text: |
+    package analyzer;
+
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println("Hello World!");
+        }
+    }
+  learner_created: false
+- name: test/FileTypeAnalyzerTest.java
+  visible: false
+  text: |2
+
+    import analyzer.Main;
+    import org.hyperskill.hstest.stage.StageTest;
+    import org.hyperskill.hstest.testcase.CheckResult;
+    import org.hyperskill.hstest.testcase.TestCase;
+
+    import java.util.List;
+
+    class Clue {
+        String response;
+        String feedback;
+
+        Clue(String response, String feedback) {
+            this.response = response;
+            this.feedback = feedback;
+        }
+    }
+
+    public class FileTypeAnalyzerTest extends StageTest<Clue> {
+        public FileTypeAnalyzerTest() {
+            super(Main.class);
+        }
+
+        @Override
+        public List<TestCase<Clue>> generate() {
+            return List.of(
+                new TestCase<Clue>()
+                    .addArguments(new String[]
+                        {"doc.pdf", "%PDF-", "PDF document"})
+                    .addFile("doc.pdf", "PFDF%PDF-PDF")
+                    .setAttach(new Clue("PDF document", "The file had following content: " +
+                        "PFDF%PDF-PDF and was analyzed for pattern %PDF-")),
+
+                new TestCase<Clue>()
+                    .addArguments(new String[]
+                        {"doc.txt", "%PDF-", "PDF document"})
+                    .addFile("doc.txt", "PFDF%PDF-PDF")
+                    .setAttach(new Clue("PDF document", "The file had following content: " +
+                        "PFDF%PDF-PDF and was analyzed for pattern %PDF-")),
+
+                new TestCase<Clue>()
+                    .addArguments(new String[]
+                        {"doc.pdf", "%PDF-", "PDF document"})
+                    .addFile("doc.pdf", "PFDFPDF")
+                    .setAttach(new Clue("Unknown file type", "The file had following content: " +
+                        "PFDFPDF and was analyzed for pattern %PDF-")),
+
+                new TestCase<Clue>()
+                    .addArguments(new String[]
+                        {"doc.txt", "%PDF-", "PDF document"})
+                    .addFile("doc.txt", "PFDFPDF")
+                    .setAttach(new Clue("Unknown file type", "The file had following content: " +
+                        "PFDFPDF and was analyzed for pattern %PDF-")),
+
+
+
+                new TestCase<Clue>()
+                    .addArguments(new String[]
+                        {"doc.pdf", "%DOC-", "DOC document"})
+                    .addFile("doc.pdf", "PFDF%DOC-PDF")
+                    .setAttach(new Clue("DOC document", "The file had following content: " +
+                        "PFDF%PDF-PDF and was analyzed for pattern %PDF-")),
+
+                new TestCase<Clue>()
+                    .addArguments(new String[]
+                        {"doc.txt", "%DOC-", "DOC document"})
+                    .addFile("doc.txt", "PFDF%DOC-PDF")
+                    .setAttach(new Clue("DOC document", "")),
+
+                new TestCase<Clue>()
+                    .addArguments(new String[]
+                        {"doc.pdf", "%DOC-", "DOC document"})
+                    .addFile("doc.pdf", "PFDFPDF")
+                    .setAttach(new Clue("Unknown file type", "")),
+
+                new TestCase<Clue>()
+                    .addArguments(new String[]
+                        {"doc.txt", "%DOC-", "DOC document"})
+                    .addFile("doc.txt", "PFDFPDF")
+                    .setAttach(new Clue("Unknown file type", ""))
+            );
+        }
+
+        @Override
+        public CheckResult check(String reply, Clue clue) {
+            String actual = reply.strip();
+            String expected = clue.response.strip();
+            return new CheckResult(actual.equals(expected),
+                clue.feedback + "\nExpected result: " + expected +
+                    "\nActual result: " + actual);
+        }
+    }
+  learner_created: false
+feedback_link: https://hyperskill.org/projects/64/stages/343/implement
+status: Solved
+feedback:
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/64/stages/343/implement">JetBrains
+    Academy</a>
+  time: Fri, 17 Jul 2020 10:30:28 UTC
+record: 1

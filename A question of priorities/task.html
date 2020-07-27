@@ -1,0 +1,25 @@
+<h2>Description</h2>
+
+<p>It is almost useless to have a pattern base with only one pattern. We need more. We can take patterns one by one from some storage and match them until we find a successful match. But what should we do if several patterns match successfully?</p>
+
+<p>Extend your program to make it match several patterns against each file. Implement some prioritizing scheme for patterns to prevent ambiguity in case of multiple matches.</p>
+
+<p>The <code class="java">patterns.db</code> consist of patterns with their priorities. You can download it <a target="_blank" href="https://stepik.org/media/attachments/lesson/210127/patterns.db" rel="nofollow noopener noreferrer">here</a>. For example:</p>
+
+<pre><code class="language-no-highlight">4;"PK";"Zip archive"
+7;"word/_rels";"MS Office Word 2007+"
+7;"ppt/_rels";"MS Office PowerPoint 2007+"
+7;"xl/_rels";"MS Office Excel 2007+"</code></pre>
+
+<p>Higher value means higher priority. In this example, the <code class="java">"Zip archive"</code> is a container for multiple files. But Microsoft Office files also stored as Zip archives, you can clearly see this if you rename file <code class="java">"file.docx"</code> to <code class="java">"file.zip"</code> you can unzip it - it contains a bunch of folders and a bunch of XMLs.  So, a Word file contais both <code class="java">"PK"</code> indicatind that this is a Zip archive and <code class="java">"word/_rels"</code> indicating that this is a Word document. In this situation you should choose a pattern with higher priority - <code class="java">"MS Office Word 2007+"</code>.</p>
+
+<p>While developing your program you can use the attached file. It contains some patterns with different priorities sorted by their “accuracy” (for example, MSOffice 2007 documents store their data inside a zip archive, so the pattern for Office documents should be “stronger” than the pattern for zip archive).</p>
+
+<h2>Output example</h2>
+
+<pre><code class="language-no-highlight">java Main patterns.db test_files
+test_filesdoc_0.doc: MS Office Word 2003
+doc_1.ppt: MS Office PowerPoint 2003
+file.zip: Zip archive</code></pre>
+
+<p> </p>

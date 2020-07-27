@@ -1,0 +1,80 @@
+[1;31m
+Start test 1[0m
+PDF document
+[1;31m
+Start test 2[0m
+PDF document
+[1;31m
+Start test 3[0m
+Unknown file type
+[1;31m
+Start test 4[0m
+Unknown file type
+[1;31m
+Start test 5[0m
+DOC document
+[1;31m
+Start test 6[0m
+DOC document
+[1;31m
+Start test 7[0m
+Unknown file type
+[1;31m
+Start test 8[0m
+Unknown file type
+[1;31m
+Start test 1[0m
+doc.pdf: PDF document
+text.pdf: Unknown file type
+[1;31m
+Start test 2[0m
+doc.zip: Unknown file type
+doc1.zip: Zip archive
+[1;31m
+Start test 3[0m
+main: PCP pmview config
+main.config: Unknown file type
+[1;31m
+Start test 4[0m
+&slides1.odp: OpenDocument presentation
+slides2.odp: Unknown file type
+[1;31m
+Start test 5[0m
+doc.txt: Unknown file type
+txt.doc: MS Office Word 2003
+[1;31m
+Start test 6[0m
+&slides1.ptp: MS Office PowerPoint 2003
+slides2.ptp: Unknown file type
+[1;31m
+Start test 7[0m
+doc.txt: Unknown file type
+txt.doc: MS Office Word 2007+
+[1;31m
+Start test 8[0m
+&pres1.pptx: MS Office PowerPoint 2007+
+pres2.pptx: Unknown file type
+[1;31m
+Start test 9[0m
+!sheet1.xls: MS Office Excel 2007+
+sheet2.xls: Unknown file type
+[1;31m
+Start test 10[0m
+cert.pem: PEM certificate
+ cert_core.pem: Unknown file type
+[1;31m
+Start test 11[0m
+1.jpg: ISO Media JPEG 2000
+2.jpg: Unknown file type
+[1;31m
+Start test 12[0m
+%tape.jpg: ISO Media MP4 Base Media v2
+tape.mp4: Unknown file type
+[1;31m
+Start test 13[0m
+tape2.jpg: MS Office Word 2003
+&tape2.mp4: ISO Media MP4 Base Media v2
+[1;31m
+Start test 14[0m
+tape3.jpg: PEM certificate
+tape3.mp4: MS Office Word 2003

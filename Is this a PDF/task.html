@@ -1,0 +1,31 @@
+<h2>Description</h2>
+
+<p>In this project, you will learn how to make a tool for determining file type. It's not like determining file type based on the extension of the file; the filename can be random. Actually, many file types contain special byte sequences that make it easy to determine them. You’ll start from a simple program which can only search for an occurrence of the specific pattern inside a single file and gradually turn it into a more practical solution which can check hundreds and thousands of files against a huge pattern set. Each pattern has information about a file type which will be reported to the user when there is a successful match.</p>
+
+<p>This approach is widely used in many different applications. For example the <a target="_blank" href="https://en.wikipedia.org/wiki/File_(command)" rel="nofollow noopener noreferrer">Unix “file” tool</a> relies on a sophisticated “magic” database (it consists of a pattern set written in specific language), antivirus and malware-detection tools search the malicious signatures inside user’s files, and firewalls do the same with a system’s network traffic (as well as DPI systems). </p>
+
+<p>Let’s begin with an elementary prototype of our file type checker. Write a program which accepts a pattern and its file type and matches the pattern against some file.</p>
+
+<p>Here we deﬁne pattern as a pair of two strings: {P, R}, where P is a pattern itself and R is a resulting ﬁle type which corresponds to pattern P. If the string P is found in the ﬁle then your program should return R as ﬁle type. For example, for the following pattern</p>
+
+<pre><code class="java"> {"%PDF-", "PDF document"} </code></pre>
+
+<p>the program will search for a <code class="java">"%PDF-"</code> in a ﬁle’s binary data and if found successfully will determine ﬁle type as <code class="java">"PDF document"</code>. Note that the pattern can be anywhere in the file, not just at the start of the file. You can see here in the row with "Magic number" there is the <code class="java">"%PDF"</code> pattern, but actually after this pattern, the  <code class="java">"-"</code> symbol always appears,<strong> </strong>so the pattern described above is stricter.</p>
+
+<p>You can use <a target="_blank" href="https://www.codejava.net/java-se/file-io/how-to-read-and-write-binary-files-in-java" rel="nofollow noopener noreferrer">this</a> link to see how to open a file in binary.</p>
+
+<p>Write a program which accepts a ﬁle name and pattern and searches for an occurrence of the pattern in this ﬁle. If the pattern matched at least once the program should report its type. If there were no matches, print “Unknown ﬁle type”.</p>
+
+<p>Your program should accept three arguments: the file to check (relative path), the pattern string (P), and the result string (R).</p>
+
+<h2>Output examples</h2>
+
+<p>The examples below show how your output might look.</p>
+
+<pre><code class="language-no-highlight">java Main doc.pdf "%PDF-" "PDF document"
+PDF document</code></pre>
+
+<pre><code class="language-no-highlight">java Main picture.jpg "%PDF-" "PDF document"
+Unknown file type</code></pre>
+
+<p> </p>
